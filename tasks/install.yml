@@ -26,10 +26,6 @@
     state: present
     install_recommends: False
 
-- name: Divert original configs
-  command: dpkg-divert --quiet --local --divert {{ elasticsearch_path_conf }}/{{ item }}.yml.dpkg-divert --rename {{ elasticsearch_path_conf }}/{{ item }}.yml creates={{ elasticsearch_path_conf }}/{{ item }}.yml.dpkg-divert
-  with_items: [ 'elasticsearch', 'logging' ]
-
 - name: Configure Elasticsearch
   template:
     src: '{{ item[1:] }}.j2'
