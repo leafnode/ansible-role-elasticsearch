@@ -16,7 +16,7 @@
 # Elasticsearch version. Supported are the 1.x.y and 2.x.y releases from
 # the upstream Apt repository. To install the latest minor release, set
 # this to e.g. ``2.x``.
-elasticsearch_version: '2.4'
+elasticsearch_version: '6.4'
 
 
 # .. envvar:: elasticsearch_cluster_name
