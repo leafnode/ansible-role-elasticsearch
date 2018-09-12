@@ -10,20 +10,19 @@
   apt_repository:
     repo: 'deb {{ elasticsearch_repository }}/{{ elasticsearch_version if (elasticsearch__version_major | int == 1) else (elasticsearch__version_major + ".x") }}/debian stable main'
     state: present
-    update_cache: True
   when: elasticsearch__version_major | int <= 2
 
 - name: Add Elasticsearch repository
   apt_repository:
     repo: 'deb https://artifacts.elastic.co/packages/{{ elasticsearch__version_major }}.x/apt stable main'
     state: present
-    update_cache: True
   when: elasticsearch__version_major | int > 2
 
 - name: Install Elasticsearch
   apt:
     pkg: 'elasticsearch'
     state: present
+    update_cache: true
     install_recommends: False
 
 - name: Configure Elasticsearch
