@@ -25,7 +25,7 @@ script:
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
 
   # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i ansible-role-elasticsearch/tests/inventory ansible-role-elasticsearch/tests/$SITE --connection=local --become"
+  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --become"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
