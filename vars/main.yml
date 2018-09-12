@@ -22,8 +22,7 @@ elasticsearch_path_lib: '{{ elasticsearch_path_home }}/lib'
 
 # --- Memory ---
 
-# UNSUPPORTED
-# elasticsearch_memory_heap_size: '{{ (ansible_memtotal_mb | int * elasticsearch_memory_heap_size_multiplier) | round | int }}m'
+elasticsearch_memory_heap_size: '{{ (ansible_memtotal_mb | int * elasticsearch_memory_heap_size_multiplier) | round | int }}m'
 
 # --- Discovery ---
 
