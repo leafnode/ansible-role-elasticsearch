@@ -20,10 +20,19 @@
 
 - name: Install Elasticsearch
   apt:
-    pkg: 'elasticsearch'
+    pkg: 'elasticsearch={{ elasticsearch_version }}.*'
     state: present
     update_cache: true
     install_recommends: False
+  when: elasticsearch_version_exact == false
+
+- name: Install Elasticsearch exact version
+  apt:
+    pkg: 'elasticsearch={{ elasticsearch_version }}'
+    state: present
+    update_cache: true
+    install_recommends: False
+  when: elasticsearch_version_exact == true
 
 - name: Configure Elasticsearch
   template:

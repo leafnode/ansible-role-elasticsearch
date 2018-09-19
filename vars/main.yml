@@ -9,6 +9,7 @@ elasticsearch_repository: 'http://packages.elastic.co/elasticsearch'
 # --- Version ---
 
 elasticsearch__version_major: '{{ (elasticsearch_version | string).split(".")[0] | int }}'
+elasticsearch_version_exact: '{{ ((elasticsearch_version | string).split(".") | length) > 2 }}'
 
 # --- Paths ---
 
