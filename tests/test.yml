@@ -2,5 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - java8
+    - iroquoisorg.java8
     - ansible-role-elasticsearch
