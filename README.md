@@ -523,14 +523,14 @@ elasticsearch__ferm_cluster_rules:
   - type: 'accept'
     dport: [ '{{ elasticsearch_node_port | replace("-", ":") }}' ]
     saddr: '{{ elasticsearch_node_allow }}'
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_tcp'
   - type: 'accept'
     dport: [ 'elasticsearch-multicast' ]
     saddr: '{{ elasticsearch_multicast_allow }}'
     protocol: [ 'udp' ]
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_multicast'
 
@@ -543,10 +543,14 @@ elasticsearch__ferm_http_rules:
   - type: 'accept'
     dport: [ '{{ elasticsearch_http_port | replace("-", ":") }}' ]
     saddr: '{{ elasticsearch_http_allow }}'
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_http'
                                                                    # ]]]
                                                                    # ]]]
 
 ```
+
+# Development
+
+Please check [development guide](DEVELOPMENT.md) for details about developing and testing this role.

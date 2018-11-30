@@ -4,7 +4,7 @@
   command: ls
   args:
     chdir: '{{ elasticsearch_path_lib }}'
-  changed_when: False
+  changed_when: false
   register: elasticsearch_register_installed_libs
 
 - name: Delete libs

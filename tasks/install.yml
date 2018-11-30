@@ -1,4 +1,8 @@
 ---
+- name: Install APT https transport
+  apt:
+    name: apt-transport-https
+    state: present
 
 - name: Add Elasticsearch APT key
   apt_key:
@@ -23,7 +27,7 @@
     pkg: 'elasticsearch={{ elasticsearch_version }}.*'
     state: present
     update_cache: true
-    install_recommends: False
+    install_recommends: false
   when: elasticsearch_version_exact == false
 
 - name: Install Elasticsearch exact version
@@ -31,7 +35,7 @@
     pkg: 'elasticsearch={{ elasticsearch_version }}'
     state: present
     update_cache: true
-    install_recommends: False
+    install_recommends: false
   when: elasticsearch_version_exact == true
 
 - name: Configure Elasticsearch
@@ -51,7 +55,7 @@
   service:
     name: 'elasticsearch'
     state: started
-    enabled: True
+    enabled: true
   register: elastic_start
 
 - name: Wait for ElasticSearch to come up
@@ -60,3 +64,5 @@
     delay: 15
     host: localhost
   when: elastic_start.changed
+  tags:
+    - skip_ansible_lint

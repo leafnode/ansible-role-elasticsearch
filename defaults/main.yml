@@ -23,7 +23,8 @@ elasticsearch_version: '6.4'
 # Cluster name.
 elasticsearch_cluster_name: 'elasticsearch'
 
-                                                                   # ]]]
+# ]]]
+
 # Node configuration [[[
 # ----------------------
 
@@ -47,7 +48,8 @@ elasticsearch_node_rack: 'nicerack'
 # <https://www.elastic.co/guide/en/elasticsearch/reference/2.4/modules-node.html#max-local-storage-nodes>`.
 elasticsearch_node_max_local_storage_nodes: 1
 
-                                                                   # ]]]
+# ]]]
+
 # Index configuration [[[
 # -----------------------
 
@@ -62,7 +64,8 @@ elasticsearch_index_shards: 5
 # Number of replicas that an index must have.
 elasticsearch_index_replicas: 1
 
-                                                                   # ]]]
+# ]]]
+
 # Plugins and libraries [[[
 # =========================
 
@@ -79,7 +82,8 @@ elasticsearch_plugins: []
 # classpath. For more information see :ref:`elasticsearch__ref_libs`.
 elasticsearch_libs: []
 
-                                                                   # ]]]
+# ]]]
+
 # Resource configuration [[[
 # --------------------------
 
@@ -133,7 +137,8 @@ elasticsearch_fs_max_open_files: 65535
 # Force ES to use ipv4, set this to an empty string if you want to use ipv6.
 elasticsearch_fs_java_opts: '-Djava.net.preferIPv4Stack=true'
 
-                                                                   # ]]]
+# ]]]
+
 # Network configuration [[[
 # -------------------------
 
@@ -223,11 +228,12 @@ elasticsearch_gateway_type: 'local'
 
 
 # These get dynamically set by ES, make sure you know what you're doing.
-#elasticsearch_gateway_recover_after_time: ?
-#elasticsearch_gateway_recover_after_nodes: ?
-#elasticsearch_gateway_expected_nodes: ?
+# elasticsearch_gateway_recover_after_time: ?
+# elasticsearch_gateway_recover_after_nodes: ?
+# elasticsearch_gateway_expected_nodes: ?
 
-                                                                   # ]]]
+# ]]]
+
 # Index recovery policy [[[
 # -------------------------
 
@@ -238,11 +244,12 @@ elasticsearch_recovery_max_bytes_per_sec: '20mb'
 
 
 # These get dynamically set by ES, make sure you know what you're doing.
-#elasticsearch_recovery_node_initial_primaries_recoveries: ?
-#elasticsearch_recovery_node_concurrent_recoveries: ?
-#elasticsearch_recovery_concurrent_streams: ?
+# elasticsearch_recovery_node_initial_primaries_recoveries: ?
+# elasticsearch_recovery_node_concurrent_recoveries: ?
+# elasticsearch_recovery_concurrent_streams: ?
 
-                                                                   # ]]]
+# ]]]
+
 # Cluster discovery [[[
 # ---------------------
 
@@ -273,7 +280,8 @@ elasticsearch_discovery_multicast_enabled: true
 # List of hosts in the cluster when using unicast cluster discovery.
 elasticsearch_discovery_ping_unicast_hosts: []
 
-                                                                   # ]]]
+# ]]]
+
 # Logging configuration [[[
 # =========================
 
@@ -452,7 +460,8 @@ elasticsearch_logger_appender:
       type: pattern
       conversionPattern: '[%d{ISO8601}][%-5p][%-25c] %m%n'
 
-                                                                   # ]]]
+# ]]]
+
 # DebOps environment [[[
 # ----------------------
 
@@ -508,14 +517,14 @@ elasticsearch__ferm_cluster_rules:
   - type: 'accept'
     dport: [ '{{ elasticsearch_node_port | replace("-", ":") }}' ]
     saddr: '{{ elasticsearch_node_allow }}'
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_tcp'
   - type: 'accept'
     dport: [ 'elasticsearch-multicast' ]
     saddr: '{{ elasticsearch_multicast_allow }}'
     protocol: [ 'udp' ]
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_multicast'
 
@@ -528,8 +537,8 @@ elasticsearch__ferm_http_rules:
   - type: 'accept'
     dport: [ '{{ elasticsearch_http_port | replace("-", ":") }}' ]
     saddr: '{{ elasticsearch_http_allow }}'
-    accept_any: False
+    accept_any: false
     weight: '50'
     role: 'elasticsearch_http'
-                                                                   # ]]]
-                                                                   # ]]]
+# ]]]
+# ]]]

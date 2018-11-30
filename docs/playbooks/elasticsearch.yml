@@ -6,7 +6,7 @@
            'debops_service_elasticsearch_workhorse',
            'debops_service_elasticsearch_coordinator',
            'debops_service_elasticsearch_loadbalancer' ]
-  become: True
+  become: true
 
   environment: '{{ inventory__environment | d({})
                    | combine(inventory__group_environment | d({}))
