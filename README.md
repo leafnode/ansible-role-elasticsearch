@@ -1,6 +1,6 @@
 # elasticsearch
 
-[![Build Status](https://travis-ci.com/iroquoisorg/ansible-role-elasticsearch.svg?branch=master)](https://travis-ci.com/iroquoisorg/ansible-role-memcached)
+[![Build Status](https://travis-ci.com/iroquoisorg/ansible-role-elasticsearch.svg?branch=master)](https://travis-ci.com/iroquoisorg/ansible-role-elasticsearch)
 
 Ansible role for elasticsearch
 
@@ -13,7 +13,7 @@ This role was prepared and tested for Ubuntu 16.04.
 # Default settings
 
 ```
-
+---
 # .. vim: foldmarker=[[[,]]]:foldmethod=marker
 
 # debops.elasticsearch default variables [[[
@@ -24,7 +24,7 @@ This role was prepared and tested for Ubuntu 16.04.
 
 
 # Basic configuration [[[
-# --------------------
+# -----------------------
 
 # .. envvar:: elasticsearch_version
 #
@@ -38,9 +38,10 @@ elasticsearch_version: '6.4'
 # Cluster name.
 elasticsearch_cluster_name: 'elasticsearch'
 
-                                                                   # ]]]
+# ]]]
+
 # Node configuration [[[
-# -------------------
+# ----------------------
 
 # .. envvar:: elasticsearch_node_name
 #
@@ -62,9 +63,10 @@ elasticsearch_node_rack: 'nicerack'
 # <https://www.elastic.co/guide/en/elasticsearch/reference/2.4/modules-node.html#max-local-storage-nodes>`.
 elasticsearch_node_max_local_storage_nodes: 1
 
-                                                                   # ]]]
+# ]]]
+
 # Index configuration [[[
-# --------------------
+# -----------------------
 
 # .. envvar:: elasticsearch_index_shards
 #
@@ -77,7 +79,8 @@ elasticsearch_index_shards: 5
 # Number of replicas that an index must have.
 elasticsearch_index_replicas: 1
 
-                                                                   # ]]]
+# ]]]
+
 # Plugins and libraries [[[
 # =========================
 
@@ -94,9 +97,10 @@ elasticsearch_plugins: []
 # classpath. For more information see :ref:`elasticsearch__ref_libs`.
 elasticsearch_libs: []
 
-                                                                   # ]]]
+# ]]]
+
 # Resource configuration [[[
-# -----------------------
+# --------------------------
 
 # .. envvar:: elasticsearch_memory_mlockall
 #
@@ -148,9 +152,10 @@ elasticsearch_fs_max_open_files: 65535
 # Force ES to use ipv4, set this to an empty string if you want to use ipv6.
 elasticsearch_fs_java_opts: '-Djava.net.preferIPv4Stack=true'
 
-                                                                   # ]]]
+# ]]]
+
 # Network configuration [[[
-# ----------------------
+# -------------------------
 
 # .. envvar:: elasticsearch_bind_host
 #
@@ -238,13 +243,14 @@ elasticsearch_gateway_type: 'local'
 
 
 # These get dynamically set by ES, make sure you know what you're doing.
-#elasticsearch_gateway_recover_after_time: ?
-#elasticsearch_gateway_recover_after_nodes: ?
-#elasticsearch_gateway_expected_nodes: ?
+# elasticsearch_gateway_recover_after_time: ?
+# elasticsearch_gateway_recover_after_nodes: ?
+# elasticsearch_gateway_expected_nodes: ?
 
-                                                                   # ]]]
+# ]]]
+
 # Index recovery policy [[[
-# ----------------------
+# -------------------------
 
 # .. envvar:: elasticsearch_recovery_max_bytes_per_sec
 #
@@ -253,13 +259,14 @@ elasticsearch_recovery_max_bytes_per_sec: '20mb'
 
 
 # These get dynamically set by ES, make sure you know what you're doing.
-#elasticsearch_recovery_node_initial_primaries_recoveries: ?
-#elasticsearch_recovery_node_concurrent_recoveries: ?
-#elasticsearch_recovery_concurrent_streams: ?
+# elasticsearch_recovery_node_initial_primaries_recoveries: ?
+# elasticsearch_recovery_node_concurrent_recoveries: ?
+# elasticsearch_recovery_concurrent_streams: ?
 
-                                                                   # ]]]
+# ]]]
+
 # Cluster discovery [[[
-# ------------------
+# ---------------------
 
 # .. envvar:: elasticsearch_discovery_minimum_master_nodes
 #
@@ -288,7 +295,8 @@ elasticsearch_discovery_multicast_enabled: true
 # List of hosts in the cluster when using unicast cluster discovery.
 elasticsearch_discovery_ping_unicast_hosts: []
 
-                                                                   # ]]]
+# ]]]
+
 # Logging configuration [[[
 # =========================
 
@@ -467,9 +475,10 @@ elasticsearch_logger_appender:
       type: pattern
       conversionPattern: '[%d{ISO8601}][%-5p][%-25c] %m%n'
 
-                                                                   # ]]]
+# ]]]
+
 # DebOps environment [[[
-# -------------------
+# ----------------------
 
 # .. envvar:: elasticsearch_group_master
 #
@@ -546,8 +555,8 @@ elasticsearch__ferm_http_rules:
     accept_any: false
     weight: '50'
     role: 'elasticsearch_http'
-                                                                   # ]]]
-                                                                   # ]]]
+# ]]]
+# ]]]
 
 ```
 
