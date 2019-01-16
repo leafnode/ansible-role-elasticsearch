@@ -4,5 +4,7 @@
   become: true
   vars:
     elasticsearch_version: '6.2.4'
+    elasticsearch_plugins:
+      - { name: 'analysis-icu' }
   roles:
     - role: ansible-role-elasticsearch
