@@ -28,7 +28,7 @@
     state: present
     update_cache: true
     install_recommends: false
-  when: elasticsearch_version_exact == false
+  when: not elasticsearch_version_exact
 
 - name: Install Elasticsearch exact version
   apt:
@@ -36,7 +36,7 @@
     state: present
     update_cache: true
     install_recommends: false
-  when: elasticsearch_version_exact == true
+  when: elasticsearch_version_exact
 
 - name: Configure Elasticsearch
   template:
